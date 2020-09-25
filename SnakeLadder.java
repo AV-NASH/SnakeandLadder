@@ -6,6 +6,7 @@ public class SnakeLadder {
  public static void main(String[] args) {
 	 Scanner sc=new Scanner(System.in);
 	int start_position=0;
+	int winning_position=100;
 	int position;
 	int dice_roll;
 	
@@ -16,7 +17,7 @@ public class SnakeLadder {
 	position=start_position;
 	
 	System.out.println("Your starting position is:"+position);
-	
+	while(position<winning_position) {
 	System.out.println("Press enter to roll the  dice");
 	sc.nextLine();
 	dice_roll=(int)((Math.random()*10)%6+1);
@@ -28,18 +29,25 @@ public class SnakeLadder {
 		case ladder: {
 			System.out.println("you encountered a ladder");	
 			position =position+dice_roll;
+			break;
 		}
 		
 		case snake: {
 			System.out.println("you encountered a snake");	
 			position=position-dice_roll;
+			break;
 		}
 		default:
 			System.out.println("you encountered no play, please roll dice again");
 		}
 	
-	
+	if(position<0) position=start_position;
+	 
 	System.out.println("Your new position is:"+position);
+	
+	}
+	
+	System.out.println("Congratulations you have won the game");
 	
 	
 }
