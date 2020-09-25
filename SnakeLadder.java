@@ -10,6 +10,7 @@ public class SnakeLadder {
 	int play_check;
 	int position;
 	int dice_roll;
+	int noof_dice_roll=0;
 	
 	 final int ladder=1;
 	 final int snake=2;
@@ -22,6 +23,7 @@ public class SnakeLadder {
 	System.out.println("Press enter to roll the  dice");
 	sc.nextLine();
 	dice_roll=(int)((Math.random()*10)%6+1);
+	noof_dice_roll++;
 	System.out.println("Dice shows "+dice_roll);
 	play_check=(int)((Math.random()*10)%3);
 	
@@ -52,6 +54,7 @@ public class SnakeLadder {
 	}
 	
 	System.out.println("Congratulations you have won the game");
+	System.out.println("Dice was rolled "+noof_dice_roll+" times throughout the game");
 	
 	
 }
