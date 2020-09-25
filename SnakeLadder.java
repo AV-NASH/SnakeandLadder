@@ -7,6 +7,7 @@ public class SnakeLadder {
 	 Scanner sc=new Scanner(System.in);
 	int start_position=0;
 	int winning_position=100;
+	int play_check;
 	int position;
 	int dice_roll;
 	
@@ -22,9 +23,10 @@ public class SnakeLadder {
 	sc.nextLine();
 	dice_roll=(int)((Math.random()*10)%6+1);
 	System.out.println("Dice shows "+dice_roll);
+	play_check=(int)((Math.random()*10)%3);
 	
-	int play_check=(int)((Math.random()*10)%3);
-	
+	if(!((position+dice_roll)>100)) {
+
 	switch (play_check) {
 		case ladder: {
 			System.out.println("you encountered a ladder");	
@@ -40,9 +42,11 @@ public class SnakeLadder {
 		default:
 			System.out.println("you encountered no play, please roll dice again");
 		}
+	}  else System.out.println("Cannot go beyond 100 please roll the dice again");
+	
+	
 	
 	if(position<0) position=start_position;
-	 
 	System.out.println("Your new position is:"+position);
 	
 	}
